@@ -1,0 +1,21 @@
+class Solution {
+  public:  
+  long long int dp[101][101];
+int mod = 1e9 + 7;
+  long long int f(int m, int n, int i, int j){
+        if(i >= m || j >= n) return 0;
+        if(i == m-1 && j == n-1) return 1;
+        
+        if(dp[i][j] != -1) return dp[i][j];
+        long long int l = f(m, n, i+1, j);
+        long long int r = f(m, n, i, j+1);
+        
+        return dp[i][j] =  (l + r)%mod;
+    }
+    long long int numberOfPaths(int m, int n){
+        // code here
+        memset(dp, -1, sizeof(dp));
+        return f(m,  n, 0, 0);
+    }
+    
+};
