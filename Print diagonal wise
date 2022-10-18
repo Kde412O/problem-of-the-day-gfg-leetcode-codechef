@@ -1,0 +1,52 @@
+	
+	public:
+	vector<int> downwardDigonal(int N, vector<vector<int>> A)
+	{
+		vector<int>ans;
+
+ for(int i=0; i<N; i++)
+
+ {
+
+     int i1 = 0, j1 =i;
+
+     while(i1<N && j1>=0)
+
+     {
+
+         ans.push_back(A[i1][j1]);
+
+         i1++;
+
+         j1--;
+
+     }
+
+ }
+
+ 
+
+ for(int i=1; i<N; i++)
+
+ {
+
+     int i1 = i, j1 =N-1;     
+
+     while(i1<N && j1>=0)
+
+     {
+
+         ans.push_back(A[i1][j1]);
+
+         i1++;
+
+         j1--;
+
+     }
+
+ }
+
+ return ans;
+	}
+
+};
